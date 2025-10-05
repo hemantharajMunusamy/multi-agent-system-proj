@@ -5,6 +5,29 @@
 // If you want to use an identifier from  a header file, it isn't enough to include the header file, you can also need to tell the compiler that 
 // you are using identifiers from the namespace block.
 
+
+void ptr_example() {
+    int array[10] = {0, 10, 20, 30, 40, 50, 60, 70, 80, 90};
+    int *ptr;
+    int i;
+    
+    std::cout << "Using ordinary indexing: array contains " << std::endl;
+    
+    for(int i = 0; i < 10; ++i) {
+        std::cout << array[i] << " ";
+    }
+    std::cout << std::endl;
+
+    ptr = array; // ptr points to the start of the array
+
+    std::cout << "Using pointer addressing: array contains " << std::endl;
+
+    for(int i = 0; i < 10; ++i) {
+        std::cout << *(ptr + i) << " ";
+    }
+    std::cout << std::endl;
+}
+
 void block_example() {
     {
         int i = 0; // An identifier has scope in the block in which it is declared.
@@ -68,5 +91,7 @@ int main() {
 
     //cin_example();
 
-    block_example();
+    //block_example();
+
+    ptr_example();
 }

@@ -1,17 +1,24 @@
+// ******************************
+// C++ demo program 2 
+// To show:
+//         Write a program inputs a string from the keyboard and echoes it to 
+//         the screen along with the length of the string. The program loops 
+//         until the string is ‘0’
+// ******************************
 #include <iostream>
-
-// Write a program inputs a string from the keyboard and echoes it to the screen along with
-// the length of the string. The program loops until the string is ‘0’
 
 int main() {
     
-    std::string input;
+    bool stopCondition = false;
 
-    while(true) {
+    std::string input;
+    
+    while(!stopCondition) {
         getline(std::cin, input);
         if(input == "0") {
-            break;
+            stopCondition = true;
+        } else {
+            std::cout << input << " -> " << input.size() << std::endl; 
         }
-        std::cout << input << " -> " << input.size() << std::endl; 
     }
 }
