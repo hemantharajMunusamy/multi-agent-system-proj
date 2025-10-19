@@ -8,11 +8,12 @@ class RepastHPCDemoModel {
         ~RepastHPCDemoModel(){}
         void init(){}
         void doSomething() {
-            std::cout << "Rank " << repast::RepastProcess::instance()->rank() << " is doing something. " << std::endl;
+            std::cout << "Rank " << repast::RepastProcess::instance()->rank() << " is doing something at " 
+            << repast::RepastProcess::instance()->getScheduleRunner().currentTick() << std::endl;
         }
 
         void initSchedule(repast::ScheduleRunner& runner) {
-            runner.scheduleEvent(1, repast::Schedule::FunctorPtr(new repast::MethodFunctor<RepastHPCDemoModel>(this, &RepastHPCDemoModel::doSomething)));
+            runner.scheduleEvent(1, 1, repast::Schedule::FunctorPtr(new repast::MethodFunctor<RepastHPCDemoModel>(this, &RepastHPCDemoModel::doSomething)));
             runner.scheduleStop(2);
         }
 };
