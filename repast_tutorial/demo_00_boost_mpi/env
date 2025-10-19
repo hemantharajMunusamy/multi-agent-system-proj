@@ -6,4 +6,4 @@ BOOST_INCLUDE=-isystem $(HOME)/sfw/boost-$(BOOST_VERSION)/include
 BOOST_LIB_DIR=-L$(HOME)/sfw/boost-$(BOOST_VERSION)/lib
 BOOST_LIBS=-lboost_mpi-mt -lboost_serialization-mt -lboost_filesystem-mt -lboost_system-mt
 
-LDFLAGS=-Wl,--disable-new-dtags -Wl,-rpath -Wl,$(HOME)/software/boost/boost_$(BOOST_VERSION)/stage/lib -Wl,-rpath -Wl,$(HOME)/software/repast_hpc-$(REPASTVERSION)/lib
+LDFLAGS=-Wl,--disable-new-dtags -Wl,-rpath -Wl,$(HOME)/sfw/boost-$(BOOST_VERSION)/lib
